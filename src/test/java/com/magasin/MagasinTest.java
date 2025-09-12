@@ -11,7 +11,53 @@ class MagasinTest {
         Item[] items = new Item[] { new Item("foo", 0, 0) };
         Magasin app = new Magasin(items);
         app.updateQuality();
-        assertEquals("fixme", app.items[0].name);
+        assertEquals("foo", app.items[0].name);
+    }
+    @Test
+    public void test_quality_speed_sellin_zero() {
+        Item[] items = new Item[] { new Item("Steak haché", 2, 4),
+                new Item("Jambon cuit", -2, 4)};
+        Magasin app = new Magasin(items);
+        app.updateQuality();
+        assertEquals(1, app.items[0].sellIn);
+        assertEquals(3, app.items[0].quality);
+        assertEquals(-3, app.items[1].sellIn);
+        assertEquals(2, app.items[1].quality);
+    }
+
+    @Test
+    public void test_quality_never_negative() {
+        Item[] items = new Item[] { new Item("Steak haché", 2, 0),
+                new Item("Jambon cuit", -2, 1)};
+        Magasin app = new Magasin(items);
+        app.updateQuality();
+        assertEquals(1, app.items[0].sellIn);
+        assertEquals(0, app.items[0].quality);
+        assertEquals(-3, app.items[1].sellIn);
+        assertEquals(0, app.items[1].quality);
+    }
+
+    @Test
+    public void test_comte() {
+        Item[] items = new Item[] { new Item("Steak haché", 2, 49),
+                new Item("Comté", -2, 49)};
+        Magasin app = new Magasin(items);
+        app.updateQuality();
+        assertEquals(1, app.items[0].sellIn);
+        assertEquals(48, app.items[0].quality);
+        assertEquals(-3, app.items[1].sellIn);
+        assertEquals(50, app.items[1].quality);
+    }
+    @Test
+    public void test_max_quality() {
+        Item[] items = new Item[] { new Item("Steak haché", 2, 52),
+                new Item("Comté", -2, 50)};
+        Magasin app = new Magasin(items);
+        app.updateQuality();
+        assertEquals(1, app.items[0].sellIn);
+        assertEquals(51, app.items[0].quality);
+        assertEquals(-3, app.items[1].sellIn);
+        assertEquals(50, app.items[1].quality);
     }
 
 }
