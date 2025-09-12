@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MagasinMasterTest {
     @Test
     void goldenMaster() {
-        Item[] items = new Item[] { new Item("foo", 0, 0), //0
+        Item[] items = new Item[] { new Item("Lego Rathian", 0, 0), //0
                                     new Item("Comté", 5, 48), //1
                                     new Item("Comté", -5, 50), //2
                                     new Item("Kryptonite", 10, 45), //3
@@ -20,7 +20,7 @@ public class MagasinMasterTest {
                                     new Item("Comté", -5, 45),}; //10
         Magasin app = new Magasin(items);
         app.updateQuality();
-        assertEquals("foo", app.items[0].name);
+        assertEquals("Lego Rathian", app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
         assertEquals(0, app.items[0].quality);
         assertEquals("Comté", app.items[1].name);
