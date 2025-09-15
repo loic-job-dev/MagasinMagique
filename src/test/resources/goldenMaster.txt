@@ -1,0 +1,11 @@
+foo, -5, 0
+Comté, 0, 50
+Comté, -10, 50
+Kryptonite, 10, 45
+Pass VIP Concert, 40, 9
+Pass VIP Concert, 5, 14
+Pass VIP Concert, 0, 22
+Pass VIP Concert, -5, 0
+Lego Rathian, -1, 0
+Lego Rathian, -9, 0
+Comté, -10, 50
