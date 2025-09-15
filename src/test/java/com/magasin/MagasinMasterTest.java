@@ -18,8 +18,11 @@ public class MagasinMasterTest {
                                     new Item("Lego Rathian", 4, 4), //8
                                     new Item("Lego Rathian", -4, 4), //9
                                     new Item("Comté", -5, 45),}; //10
+
         Magasin app = new Magasin(items);
+
         app.updateQuality();
+
         assertEquals("Lego Rathian", app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
         assertEquals(0, app.items[0].quality);
