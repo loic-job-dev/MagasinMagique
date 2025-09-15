@@ -13,6 +13,7 @@ class MagasinTest {
         app.updateQualityNew();
         assertEquals("foo", app.items[0].name);
     }
+
     @Test
     public void test_quality_speed_sellin_zero() {
         Item[] items = new Item[] { new Item("Steak haché", 2, 4),
@@ -48,6 +49,7 @@ class MagasinTest {
         assertEquals(-3, app.items[1].sellIn);
         assertEquals(50, app.items[1].quality);
     }
+
     @Test
     public void test_max_quality() {
         Item[] items = new Item[] { new Item("Steak haché", 2, 52),
