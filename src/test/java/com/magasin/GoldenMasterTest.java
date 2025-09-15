@@ -38,7 +38,7 @@ public class GoldenMasterTest {
 
 
         for (int i = 0; i <5; i++) {
-            app.updateQuality();
+            app.updateQualityNew();
             //System.out.println("Résultat au jour " + (i+1) + " :\n");
             for (Item item : items) {
                 //System.out.println(item);
