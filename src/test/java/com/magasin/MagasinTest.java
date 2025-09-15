@@ -63,7 +63,7 @@ class MagasinTest {
     }
 
     @Test
-    public void test_Pass_VIP() {
+    public void test_pass_VIP() {
         Item[] items = new Item[] {new Item ("Pass VIP Concert", -5, 40),
         new Item("Pass VIP Concert", 90, 45),
         new Item("Pass VIP Concert", 9, 40),
@@ -84,7 +84,7 @@ class MagasinTest {
     }
 
     @Test
-    public void test_Pouvoirs_magiques  () {
+    public void test_pouvoirs_magiques  () {
         Item[] items = new Item[] {new Item ("Pouvoirs magiques", -5, 40),
                 new Item("Pouvoirs magiques", 90, 45)};
 
@@ -96,6 +96,35 @@ class MagasinTest {
         assertEquals(36, app.items[0].quality);
         assertEquals(89, app.items[1].sellIn);
         assertEquals(43, app.items[1].quality);
+    }
+
+    @Test
+    public void test_kit_lego_monster_hunter() {
+        Item[] items = new Item[] {
+                new Item ("Kit lego Monster Hunter", 45, 47),
+                new Item ("Kit lego Monster Hunter", 35, 47),
+                new Item("Kit lego Monster Hunter", 25, 47),
+                new Item("Kit lego Monster Hunter", 15, 47),
+                new Item("Kit lego Monster Hunter", 5, 47),
+                new Item("Kit lego Monster Hunter", -5, 47),
+        };
+
+        Magasin app = new Magasin(items);
+
+        app.updateQualityNew();
+
+        assertEquals(44, app.items[0].sellIn);
+        assertEquals(50, app.items[0].quality);
+        assertEquals(34, app.items[1].sellIn);
+        assertEquals(50, app.items[1].quality);
+        assertEquals(24, app.items[2].sellIn);
+        assertEquals(49, app.items[2].quality);
+        assertEquals(14, app.items[3].sellIn);
+        assertEquals(48, app.items[3].quality);
+        assertEquals(4, app.items[4].sellIn);
+        assertEquals(47, app.items[4].quality);
+        assertEquals(-6, app.items[5].sellIn);
+        assertEquals(0, app.items[5].quality);
     }
 
 }

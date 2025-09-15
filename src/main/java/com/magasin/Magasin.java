@@ -18,7 +18,9 @@ class Magasin {
             } else if (item.name.equals("Pouvoirs magiques")) {
                 item.quality = update(item.quality,  item.sellIn);
                 item.quality = update(item.quality,  item.sellIn);
-            } else {
+            } else if (item.name.equals("Kit lego Monster Hunter")) {
+                item.quality = updateKitLegoMonsterHunter(item.quality, item.sellIn);
+            }else {
                 item.quality = update(item.quality,  item.sellIn);
             }
             item.sellIn--;
@@ -61,6 +63,20 @@ class Magasin {
         return quality;
     }
 
+    public int updateKitLegoMonsterHunter(int quality, int sellIn) {
+        int dizaine = (Math.abs(sellIn) / 10) % 10;
+        if (sellIn > 10) {
+            if (sellIn > 40) {
+                quality = quality + 4;
+            } else {
+                quality = quality + dizaine;
+            }
+        } else if (sellIn <= 0) {
+            quality = 0;
+        }
+        quality = checkQuality(quality);
+        return quality;
+    }
 
     public int checkQuality(int quality) {
         if (quality < 0) {
